@@ -1,0 +1,16 @@
+{
+    "contents" : "theme.kr.Gulim <-\nstructure(list(axis.title.x = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), axis.title.y = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), axis.text.x = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), axis.text.y = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), plot.title = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), legend.title = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\")), legend.text = structure(list(family = \"Gulim\", \n    face = NULL, colour = NULL, size = NULL, hjust = NULL, vjust = NULL, \n    angle = NULL, lineheight = NULL), .Names = c(\"family\", \"face\", \n\"colour\", \"size\", \"hjust\", \"vjust\", \"angle\", \"lineheight\"), class = c(\"element_text\", \n\"element\"))), .Names = c(\"axis.title.x\", \"axis.title.y\", \"axis.text.x\", \n\"axis.text.y\", \"plot.title\", \"legend.title\", \"legend.text\"), class = c(\"theme\", \n\"gg\"), complete = FALSE)\n",
+    "created" : 1444185437132.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1876344870",
+    "id" : "CD38BC86",
+    "lastKnownWriteTime" : 1444186017,
+    "path" : "~/data/theme_kr.R",
+    "project_path" : "theme_kr.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

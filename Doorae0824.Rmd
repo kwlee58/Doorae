@@ -1,0 +1,216 @@
+---
+title: "Doorae"
+author: "coop711"
+date: "2015년 8월 23일"
+output: html_document
+---
+
+관광두레 주민공동체 현황분석
+----------------------------
+
+* 자료 구조 확인
+
+```{r echo=FALSE}
+getwd()
+load("doorae_0823.rda")
+library(xtable)
+library(stargazer)
+library(knitr)
+library(tables)
+library(pander)
+options(xtable.comment=FALSE)
+options(family="AppleGothic")
+ls()
+```
+
+```{r, echo=FALSE}
+str.doorae <- str(doorae)
+cols.no.summary <- c(cols.no.summary, 60)
+str.doorae
+```
+
+* 기초통계 및 요약 파악
+
+```{r echo=FALSE}
+options(width=132)
+options(digits=2)
+doorae.summary<-sapply(doorae[,-cols.no.summary], summary)
+pander(doorae.summary)
+```
+
+
+* "공동체상태" 등을 기초로 2-way 교차분석
+
+1. 공동체상태와 조직형태
+
+1.1 교차표
+
+```{r echo=FALSE, results='asis'}
+# status.vs.structure<-table(doorae$"공동체상태", doorae$"조직형태", dnn=c("공동체상태", "조직형태"))
+# print(xtable(status.vs.structure), type="html", html.table.attributes="border=0")
+# print(xtable(addmargins(status.vs.structure), digits=0), type="html", html.table.attributes="border=0")
+# print(xtable(prop.table(status.vs.structure, margin=1)*100, digits=1), type="html", html.table.attributes="border=0")
+```
+
+```{r, echo=FALSE}
+status.vs.structure<-table(doorae$"공동체상태", doorae$"조직형태", dnn=c("공동체상태", "조직형태"))
+status.vs.structure.am <- addmargins(status.vs.structure)
+dimnames(status.vs.structure.am)[[1]][3] <- "계"
+dimnames(status.vs.structure.am)[[2]][3] <- "계"
+status.vs.structure.am
+```
+
+```{r, echo=FALSE, results='asis'}
+pander(status.vs.structure, caption="공동체상태와 조직형태")
+pander(status.vs.structure.am, digits=0, caption="공동체상태와 조직형태(계)")
+pander(prop.table(status.vs.structure, margin=1)*100, digits=1, caption="공동체상태와 조직형태(%)")
+```
+
+1.2 모자이크 플롯 
+
+```{r fig.width=6, fig.height=6}
+mosaicplot(status.vs.structure, color=rainbow(2), main="공동체상태와 조직형태")
+text(coord.text, labels=t(status.vs.structure))
+```
+
+생각을 잠시 바꿔보면
+
+```{r fig.width=6, fig.height=6}
+mosaicplot(t(status.vs.structure), color=rainbow(2), main="조직형태와 공동체상태")
+text(coord.text.1.2, labels=status.vs.structure)
+```
+
+
+1.3 성장단계 구분에의 시사점
+
+```{r, results='asis', echo=FALSE}
+knitr::kable(doorae[corporate.bi, c("공동체상태", "조직명", "성과_사업착수", "성과_사업자등록", "성과_매출_2014", "성과_매출_2015_3개월")])
+knitr::kable(doorae[noncorporate.bi, c("공동체상태", "조직명", "성과_사업착수", "성과_사업자등록", "성과_매출_2014", "성과_매출_2015_3개월")])
+knitr::kable(doorae[corporate.bp, c("공동체상태", "조직명", "성과_사업착수", "성과_사업자등록", "성과_매출_2014", "성과_매출_2015_3개월")])
+knitr::kable(doorae[noncorporate.bp, c("공동체상태", "조직명", "성과_사업착수", "성과_사업자등록", "성과_매출_2014", "성과_매출_2015_3개월")])
+```
+
+```{r, echo=FALSE, results='asis'}
+stargazer(format(ftable(table(doorae$"공동체상태", doorae$"조직형태", "사업자등록 여부"=doorae$"성과_사업자등록")), quote=FALSE, justify="right"), type="html", title="공동체상태/조직형태와 사업자등록여부")
+```
+
+```{r, echo=FALSE, results='asis'}
+stargazer(format(prop.table(ftable(table(doorae$"공동체상태", doorae$"조직형태", "사업자등록 여부"=doorae$"성과_사업자등록")), margin=1)*100, quote=FALSE, justify="right"), type="html", title="공동체상태/조직형태와 사업자등록여부(%)")
+```
+
+```{r, echo=FALSE, results='asis'}
+stargazer(format(ftable(table(doorae$"공동체상태", doorae$"조직형태", "사업착수 여부"=doorae$"성과_사업착수")), quote=FALSE, justify="right"), type="html", title="공동체상태/조직형태와 사업착수여부")
+```
+
+```{r, echo=FALSE, results='asis'}
+stargazer(format(prop.table(ftable(table(doorae$"공동체상태", doorae$"조직형태", "사업착수 여부"=doorae$"성과_사업착수")), margin=1)*100, quote=FALSE, justify="right"), type="html", digits=4, title="공동체상태/조직형태와 사업착수여부(%)")
+```
+
+------------------------
+
+2. 공동체상태와 법인유형
+
+2.1 교차표
+
+```{r, results='asis', echo=FALSE}
+status.vs.corporate_type<-table(doorae$"공동체상태", doorae$"법인유형", dnn=c("공동체상태", "조직유형"))
+knitr::kable(status.vs.corporate_type, caption="ㅇ공동체상태와 조직유형")
+````
+---------------
+
+```{r, results='asis', echo=FALSE}
+knitr::kable(doorae[stock.co, c("공동체상태", "조직명")], caption="ㅇ주식회사인 공동체사업체")
+```
+
+2.2 모자이크 플롯
+
+```{r fig.width=6, fig.height=6}
+mosaicplot(status.vs.corporate_type, color=rainbow(7), main="공동체상태와 조직유형", las=1)
+text(coord.text.2, labels=t(status.vs.corporate_type))
+```
+
+
+3. 공동체상태와 사업아이템
+
+3.1 교차표 
+
+```{r, results='asis', echo=FALSE}
+status.vs.business_item<-table(doorae$"공동체상태", doorae$"사업아이템", dnn=c("공동체상태", "사업아이템"))
+knitr::kable(status.vs.business_item)
+```
+
+
+3.2 모자이크 플롯
+
+```{r fig.width=6, fig.height=6}
+mosaicplot(status.vs.business_item, color=rainbow(7), main="공동체상태와 사업아이템", las=1)
+text(coord.text.3, labels=t(status.vs.business_item))
+```
+
+
+4. 공동체상태와 업력
+
+4.1 요약표
+
+```{r, results='asis'}
+pander(tapply(doorae$"업력", doorae$"공동체상태", summary))
+```
+
+4.2 Box Plot
+
+```{r echo=FALSE, fig.width=6, fig.height=5}
+plot(x=doorae$"공동체상태", y=doorae$"업력", main="공동체상태와 업력")
+text(coord.text.4, labels=doorae$"조직명"[c(21, 63)])
+```
+
+4.3 ECDF
+
+```{r echo=FALSE, fig.width=7, fig.height=5}
+library(ggplot2)
+ecdf.2<-ggplot(doorae.ys, aes(x=years, colour=status)) + stat_ecdf()
+ecdf.2<-ecdf.2 + theme_bw()
+ecdf.2<-ecdf.2 + theme(panel.background=element_rect("white"), panel.border=element_rect(colour="black", fill=NA))
+ecdf.2<-ecdf.2 + ggtitle("공동체상태와 업력") + theme(text=element_text(family="Apple SD Gothic Neo"))
+ecdf.2<-ecdf.2 + xlab("업력") + theme(axis.title.x=element_text(family="Apple SD Gothic Neo"))
+ecdf.2<-ecdf.2 + ylab("분위") + theme(axis.title.y=element_text(family="Apple SD Gothic Neo"))
+ecdf.2<-ecdf.2 + labs(colour="공동체상태") + theme(legend.title=element_text(family="Apple SD Gothic Neo"))
+ecdf.2<-ecdf.2 + scale_colour_discrete(labels=c("창업준비", "경영개선")) + theme(legend.text=element_text(family="Apple SD Gothic Neo"))
+ecdf.2
+```
+
+4.4 Dot Chart
+
+```{r echo=FALSE, fig.width=6, fig.height=9.6}
+ggplot(doorae, aes(x=업력, y=name)) + geom_segment(aes(yend=name), xend=0, colour="grey50") +
+geom_point(size=3, aes(colour=공동체상태)) +
+scale_colour_brewer(palette="Set1", limits=c("경영개선", "창업준비")) +
+theme_bw() +
+theme(axis.title.x=element_text(family="Apple SD Gothic Neo")) +
+ylab("조직명") + theme(axis.title.y=element_text(family="Apple SD Gothic Neo")) +
+theme(axis.text.y=element_text(family="Apple SD Gothic Neo", size=6)) +
+theme(panel.grid.major.y=element_blank(), legend.position=c(1, 0.55), 
+legend.justification=c(1, 0.5),
+legend.title=element_text(family="Apple SD Gothic Neo"),
+legend.text=element_text(family="Apple SD Gothic Neo"))
+```
+
+
+5. 방문객과 매출
+
+5.1 공동체 상태 별 평균과 중위값 비교
+
+```{r echo=FALSE}
+knitr::kable(aggregate(doorae[c("성과_방문객_2014", "성과_방문객_2015_3개월", "성과_매출_2014", "성과_매출_2015_3개월")], list("공동체상태"=doorae$"공동체상태"), mean))
+knitr::kable(aggregate(doorae[c("성과_방문객_2014", "성과_방문객_2015_3개월", "성과_매출_2014", "성과_매출_2015_3개월")], list("공동체상태"=doorae$"공동체상태"), median))
+```
+
+
+5.2 2014, 2015년도 방문객 및 매출 순 조직명 파악
+
+```{r, results='asis', echo=FALSE}
+knitr::kable(doorae[order(doorae$"성과_방문객_2014", decreasing=TRUE), c("공동체상태", "조직명", "성과_방문객_2014")][1:20,])
+knitr::kable(doorae[order(doorae$"성과_방문객_2015_3개월", decreasing=TRUE), c("공동체상태", "조직명", "성과_방문객_2015_3개월")][1:20,])
+knitr::kable(doorae[order(doorae$"성과_매출_2014", decreasing=TRUE), c("공동체상태", "조직명", "성과_매출_2014")][1:20,])
+knitr::kable(doorae[order(doorae$"성과_매출_2015_3개월", decreasing=TRUE), c("공동체상태", "조직명", "성과_매출_2015_3개월")][1:20,])
+```
+

@@ -1,0 +1,13 @@
+1	껀터	Can Tho	1401.6	1139900	813.3
+2	안장 성	An Giang Province	3536.8	2210400	625.0
+3	박리에우 성	Bạc Liêu Province	2584.1	820100	317.4
+4	벤째 성	Ben Tre Province	2584.1	1353300	317.4
+5	까마우 성	Ca Mau Province	5331.7	1232000	231.1
+6	동탑 성	Dong Thap	3376.	1667800	494.0
+7	하우장 성	Hau Giang	1601.1	796900	494.0
+8	끼엔장 성	Kien Giang Province	6348.3	1684600	265.4
+9	롱안 성	Long An Province	4493.8	1423100	316.7
+10	속짱 성	Soc Trang	3312.3	1276200	385.3
+11	띠엔장 성	Tien Giang	2484.2	1717400	691.3
+12	짜빈 성	Tra Vinh	2295.1	1036800	451.7
+13	빈롱 성	Vĩnh Long	1479.1	1057000	714.6

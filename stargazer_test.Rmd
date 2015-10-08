@@ -1,0 +1,15 @@
+---
+title: "stargazer_test"
+author: "coop711"
+date: "2015년 9월 27일"
+output: html_document
+---
+
+```{r, echo=TRUE, results='asis'}
+library(stargazer)
+Col <- sample(c("A", "B", "C"), 100, replace=TRUE)
+Row <- sample(c("D", "E", "F"), 100, replace=TRUE)
+x <- xtabs(~ Row + Col)
+f <- ftable(x)
+stargazer(format(f, quote=FALSE, justify="right"), type="html")
+```

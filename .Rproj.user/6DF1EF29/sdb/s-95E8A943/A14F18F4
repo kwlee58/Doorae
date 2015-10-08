@@ -1,0 +1,17 @@
+{
+    "contents" : "---\ntitle: \"Doorae_data\"\nauthor: \"coop711\"\ndate: \"2015년 9월 28일\"\noutput: html_document\n---\n\n```{r}\nlibrary(xlsx)\nlibrary(pander)\ndoorae0924.rest<-read.xlsx(\"./Data0924.xlsx\", 1, colIndex=2:54, endRow=98, stringsAsFactors=TRUE)\ndoorae0924.name <- read.xlsx(\"./Data0924.xlsx\", 1, colIndex=1, endRow=98)\ndoorae0924 <- data.frame(doorae0924.name, doorae0924.rest)\ndoorae0924$\"시도\"\n```\n\n* 전북이 두 개 나옴에 유의. 어떤 사연인가 하면,\n\n```{r}\n(id.to.fix <- which(doorae0924$\"시도\"==\"전북 \"))\ndoorae0924$\"조직명\"[id.to.fix]\ndoorae0924$\"시도\"[id.to.fix] <- \"전북\"\ndoorae0924$\"시도\"\npander(table(doorae0924$\"시도\"))\n```\n\ncount가 없는 factor level도 손봐야 함. 이는 간단히\n\n```{r}\n(doorae0924$\"시도\" <- factor(doorae0924$\"시도\"))\n```\n\n```{r}\nstr(doorae0924)\nyears.in.business <- round(as.numeric(difftime(Sys.Date(), doorae0924$\"설립일\", units=\"days\"))/365, digits=1)\nstr(years.in.business)\nhead(years.in.business)\ndoorae0924$\"업력\" <- years.in.business\nstr(doorae0924)\ndoorae0924$\"사업자등록여부\" <- factor(ifelse(doorae0924$\"사업자등록\" == \"NA\", \"No\", \"Yes\"), levels=c(\"Yes\", \"No\"))\ndoorae0924.ys <- data.frame(status=factor(doorae0924$\"공동체상태\", levels=c(\"창업준비\", \"경영개선\")), years=doorae0924$\"업력\")\nsave.image(\"doorae_new.rda\")\n```                        ",
+    "created" : 1443442824368.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "186678271",
+    "id" : "A14F18F4",
+    "lastKnownWriteTime" : 1443616877,
+    "path" : "~/data/Doorae_Data.Rmd",
+    "project_path" : "Doorae_Data.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
