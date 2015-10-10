@@ -18,7 +18,7 @@ library(knitr)
 library(tables)
 library(pander)
 options(xtable.comment=FALSE)
-# options(family="AppleGothic")
+options(family="Apple SD Gothic Neo")
 # ls()
 ```
 
