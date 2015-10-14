@@ -71,7 +71,7 @@ img {
 <pre><code>## Loading required package: rJava
 ## Loading required package: xlsxjars</code></pre>
 <pre class="r"><code>library(pander)
-doorae0924.rest&lt;-read.xlsx(&quot;../data/Data0924.xlsx&quot;, 1, colIndex=2:54, endRow=98, stringsAsFactors=TRUE)
+doorae0924.rest&lt;-read.xlsx(&quot;../data/Data0924.xlsx&quot;, 1, colIndex=2:54, endRow=98, stringsAsFactors=TRUE, encoding = &quot;UTF-8&quot;)
 doorae0924.name &lt;- read.xlsx(&quot;../data/Data0924.xlsx&quot;, 1, colIndex=1, endRow=98)
 doorae0924 &lt;- data.frame(doorae0924.name, doorae0924.rest)
 doorae0924$&quot;시도&quot;</code></pre>
@@ -102,59 +102,11 @@ doorae0924$&quot;시도&quot;</code></pre>
 ## [71] 경북 경북 경북 경북 경북 경북 경북 경북 경북 경북 경북 경북 경북 경북
 ## [85] 경북 경북 경남 경남 경남 경남 경남 경남 경남 경남 경남 경남 경남
 ## Levels: 강원 경기 경남 경북 전남 전북 전북  충남 충북</code></pre>
-<pre class="r"><code>pander(table(doorae0924$&quot;시도&quot;))</code></pre>
-<table>
-<caption>Table continues below</caption>
-<colgroup>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-<col width="9%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">강원</th>
-<th align="center">경기</th>
-<th align="center">경남</th>
-<th align="center">경북</th>
-<th align="center">전남</th>
-<th align="center">전북</th>
-<th align="center">전북</th>
-<th align="center">충남</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">10</td>
-<td align="center">13</td>
-<td align="center">11</td>
-<td align="center">18</td>
-<td align="center">17</td>
-<td align="center">18</td>
-<td align="center">0</td>
-<td align="center">2</td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col width="8%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">충북</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">8</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code># pander(table(doorae0924$&quot;시도&quot;))
+table(doorae0924$&quot;시도&quot;)</code></pre>
+<pre><code>## 
+##  강원  경기  경남  경북  전남  전북 전북   충남  충북 
+##    10    13    11    18    17    18     0     2     8</code></pre>
 <p>count가 없는 factor level도 손봐야 함. 이는 간단히</p>
 <pre class="r"><code>(doorae0924$&quot;시도&quot; &lt;- factor(doorae0924$&quot;시도&quot;))</code></pre>
 <pre><code>##  [1] 경기 경기 경기 경기 경기 경기 경기 경기 경기 경기 경기 경기 경기 강원
@@ -223,9 +175,9 @@ doorae0924$&quot;시도&quot;</code></pre>
 ##  $ 기타                  : num  0 1 0 0 0 4 4 2 0 0 ...</code></pre>
 <pre class="r"><code>years.in.business &lt;- round(as.numeric(difftime(Sys.Date(), doorae0924$&quot;설립일&quot;, units=&quot;days&quot;))/365, digits=1)
 str(years.in.business)</code></pre>
-<pre><code>##  num [1:97] 1.4 0.6 0.4 2.8 0.4 1.6 4.1 2.2 1.5 0.2 ...</code></pre>
+<pre><code>##  num [1:97] 1.5 0.6 0.5 2.8 0.5 1.6 4.2 2.2 1.5 0.2 ...</code></pre>
 <pre class="r"><code>head(years.in.business)</code></pre>
-<pre><code>## [1] 1.4 0.6 0.4 2.8 0.4 1.6</code></pre>
+<pre><code>## [1] 1.5 0.6 0.5 2.8 0.5 1.6</code></pre>
 <pre class="r"><code>doorae0924$&quot;업력&quot; &lt;- years.in.business
 str(doorae0924)</code></pre>
 <pre><code>## 'data.frame':    97 obs. of  55 variables:
@@ -283,7 +235,7 @@ str(doorae0924)</code></pre>
 ##  $ 사업실적_파일럿       : num  1 0 0 0 0 2 3 2 6 0 ...
 ##  $ 사업실적_관광공사     : num  0 0 0 0 0 3 3 1 0 0 ...
 ##  $ 기타                  : num  0 1 0 0 0 4 4 2 0 0 ...
-##  $ 업력                  : num  1.4 0.6 0.4 2.8 0.4 1.6 4.1 2.2 1.5 0.2 ...</code></pre>
+##  $ 업력                  : num  1.5 0.6 0.5 2.8 0.5 1.6 4.2 2.2 1.5 0.2 ...</code></pre>
 <pre class="r"><code>doorae0924$&quot;사업자등록여부&quot; &lt;- factor(ifelse(doorae0924$&quot;사업자등록&quot; == &quot;NA&quot;, &quot;No&quot;, &quot;Yes&quot;), levels=c(&quot;Yes&quot;, &quot;No&quot;))
 doorae0924.ys &lt;- data.frame(status=factor(doorae0924$&quot;공동체상태&quot;, levels=c(&quot;창업준비&quot;, &quot;경영개선&quot;)), years=doorae0924$&quot;업력&quot;)
 save.image(&quot;../R/doorae_new.rda&quot;)</code></pre>
