@@ -89,7 +89,7 @@ status.vs.structure<-table(doorae$"공동체상태", doorae$"조직형태", dnn=
 status.vs.structure.am <- addmargins(status.vs.structure)
 dimnames(status.vs.structure.am)[[1]][3] <- "계"
 dimnames(status.vs.structure.am)[[2]][3] <- "계"
-status.vs.structure.ap <- prop.table(status.vs.structure, margin=1)*100
+status.vs.structure.ap <- round(prop.table(status.vs.structure, margin=1)*100, digits=1)
 status.vs.structure.ap <-addmargins(status.vs.structure.ap)[1:2,]
 dimnames(status.vs.structure.ap)[[2]][3] <- "계"
 status.vs.structure.ap.2 <-addmargins(prop.table(status.vs.structure, margin=2)*100)[,1:2]
@@ -98,12 +98,17 @@ dimnames(status.vs.structure.ap.2)[[1]][3] <- "계"
 
 ```{r, echo=FALSE, results='asis'}
 # pander(status.vs.structure, caption="ㅇ공동체상태와 조직형태")
-pander(status.vs.structure.am, digits=0, caption="ㅇ공동체상태와 조직형태(계)")
+# pander(status.vs.structure.am, digits=0, caption="ㅇ공동체상태와 조직형태(계)")
 # pander(prop.table(status.vs.structure, margin=1)*100, digits=1, caption="ㅇ공동체상태와 조직형태(%)")
-pander(status.vs.structure.ap, digits=3, caption="ㅇ공동체상태와 조직형태(%, 계)")
-pander(status.vs.structure.ap.2, digits=3, caption="ㅇ조직형태와 공동체상태(%, 계)")
+# pander(status.vs.structure.ap, digits=3, caption="ㅇ공동체상태와 조직형태(%, 계)")
+# pander(status.vs.structure.ap.2, digits=3, caption="ㅇ조직형태와 공동체상태(%, 계)")
 ```
 
+```{r, echo=FALSE, results='asis'}
+kable(as.matrix(status.vs.structure.am), caption="ㅇ공동체상태와 조직형태(계)")
+kable(as.matrix(status.vs.structure.ap), caption="ㅇ공동체상태와 조직형태(%, 계)")
+kable(as.matrix(status.vs.structure.ap.2), caption="ㅇ조직형태와 공동체상태(%, 계)")
+```
 
 ### 모자이크 플롯
 
@@ -219,74 +224,67 @@ comm_stat.org_str.busi.ftbl <- ftable(table("공동체상태 :"=doorae$"공동�
 ```
 
 
-* 공동체상태/조직형태와 사업자등록여부 
-
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.reg.ftbl)
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(comm_stat.org_str.reg.ftbl)
+kable(as.matrix(comm_stat.org_str.reg.ftbl), caption = "* 공동체상태/조직형태와 사업자등록여부 ")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
+# stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
 
 ----------
 
-* 공동체상태/조직형태와 사업자등록여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
+kable(as.matrix(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1)), caption = "* 공동체상태/조직형태와 사업자등록여부(%)")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
+# stargazer(format(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
 
 ----------
 
-
-* 공동체상태/조직형태와 사업착수여부
 
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.busi.ftbl)
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(comm_stat.org_str.busi.ftbl)
+kable(as.matrix(comm_stat.org_str.busi.ftbl), caption = "* 공동체상태/조직형태와 사업착수여부")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
+# stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
 
 ----------
 
-
-* 공동체상태/조직형태와 사업착수여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
+kable(as.matrix(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1)), caption = "* 공동체상태/조직형태와 사업착수여부(%)")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
+# stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
 
@@ -430,7 +428,7 @@ library(ggplot2)
 poly.1 <- ggplot(years.df, aes(x = years, y = ecdf.years)) + geom_path()
 poly.2 <- poly.1 + geom_polygon(alpha = 0.3, fill = "red") 
 poly.3 <- poly.2 + theme_bw()
-# poly.4 <- poly.3 + theme(panel.background=element_rect("white"), panel.border=element_rect(colour="black", fill=NA))
+poly.4 <- poly.3 + theme(panel.background=element_rect("white"), panel.border=element_rect(colour="black", fill=NA))
 poly.5 <- poly.4 + ggtitle("공동체상태와 업력") + theme(text=element_text(family="Apple SD Gothic Neo"))
 poly.6 <- poly.5 + xlab("업력(년)") + theme(axis.title.x=element_text(family="Apple SD Gothic Neo"))
 poly.7 <- poly.6 + ylab("분위") + theme(axis.title.y=element_text(family="Apple SD Gothic Neo"))
