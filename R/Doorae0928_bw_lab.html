@@ -70,9 +70,8 @@ img {
 <h2>자료 구조</h2>
 <div class="section level3">
 <h3>기초자료</h3>
-<pre><code>## [1] &quot;V:/Works/Research_Data/Doorae/R&quot;</code></pre>
 <pre><code>## 'data.frame':    97 obs. of  24 variables:
-##  $ 조직명      : Factor w/ 97 levels &quot;가평힐링가든&quot;,..: 59 60 94 80 38 65 57 66 81 93 ...
+##  $ 조직명      : chr  &quot;수원누리&quot; &quot;수원화성공예_협&quot; &quot;행궁맛촌&quot; &quot;이웃문화협동조합&quot; ...
 ##  $ 시도        : Factor w/ 8 levels &quot;강원&quot;,&quot;경기&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ 시군        : Factor w/ 18 levels &quot;가평&quot;,&quot;강릉&quot;,..: 10 10 10 10 10 12 12 12 12 12 ...
 ##  $ PD.1        : Factor w/ 18 levels &quot;경용주&quot;,&quot;권옥선&quot;,..: 3 3 3 3 3 11 11 11 11 11 ...
@@ -97,6 +96,9 @@ img {
 ##  $ 아이디어    : Factor w/ 64 levels &quot;간식&quot;,&quot;게스트하우스&quot;,..: 34 37 1 60 29 55 60 46 20 7 ...
 ##  $ 대표상품    : Factor w/ 26 levels &quot;k&quot;,&quot;게스트하우스&quot;,..: 24 24 24 20 24 24 20 24 24 24 ...</code></pre>
 <pre><code>## NULL</code></pre>
+<hr />
+<hr />
+<hr />
 <hr />
 <hr />
 <hr />
@@ -142,61 +144,18 @@ img {
 <hr />
 <hr />
 <hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
 </div>
 </div>
 <div id="---" class="section level2">
 <h2>변수별 기초통계 및 요약</h2>
 <pre><code>## $조직명
-##               가평힐링가든                   강릉도가         강릉수공예협동조합       고들빼기영농조합법인 
-##                          1                          1                          1                          1 
-##             고산송희망마을               공전자연학교                 공주곰돌빵                 공주드림팜 
-##                          1                          1                          1                          1 
-##               교동민화마을           구천동펜션협의회                   구평마을             귀농투어사업단 
-##                          1                          1                          1                          1 
-##                 금강송마을         금오도영어영농조합                   꽃내마을           남도곁꾼협동조합 
-##                          1                          1                          1                          1 
-##       남원공예드림협동조합     남원문화기획사협동조합         남원사랑길협동조합   남원이색숙소체험협동조합 
-##                          1                          1                          1                          1 
-##              남해펜션1번가     내일관광여행사협동조합           농촌살이아카데미             누리마을빵카페 
-##                          1                          1                          1                          1 
-##                       다림                 다슬기마을               대풍헌사람들                     덕다헌 
-##                          1                          1                          1                          1 
-##       덕유산차량이동서비스                   도배마을                   독일마을             동고지명품마을 
-##                          1                          1                          1                          1 
-##         동편제영농조합법인                       동행                   두레아트                   두모마을 
-##                          1                          1                          1                          1 
-##                   두실마을               마을과사람들               망양쪽빛바다                   목화열애 
-##                          1                          1                          1                          1 
-##                 무주새내기             무주음식연구회             미실란낭만부엌         버들인영농조합법인 
-##                          1                          1                          1                          1 
-##         벽골제마을주식회사               보물섬다이아           봉화도시락사업단         사랑골영농조합법인 
-##                          1                          1                          1                          1 
-##           사미정펜션협의회             삶의향기공동체           섬진강도깨비마을               섬진강두꺼비 
-##                          1                          1                          1                          1 
-##         성내리무암협동조합                 소치마을회               손누리이야기                수-레인보우 
-##                          1                          1                          1                          1 
-##                   수미마을             수산관광나들이                   수원누리            수원화성공예_협 
-##                          1                          1                          1                          1 
-##                 숲속나들이           신흥영어영농조합               심청약선마을           아름다운인제관광 
-##                          1                          1                          1                          1 
-##               양평카누레저           양평펜션협동조합                 에코도시락   에코월드공정여행협동조합 
-##                          1                          1                          1                          1 
-## 에코피아가평발효팜협동조합               여자만사람들               영진리부녀회                   예그리나 
-##                          1                          1                          1                          1 
-##             오산항난전방티                 오전애권역       오토캠핑장사업자연합               왕지등대마을 
-##                          1                          1                          1                          1 
-##             왕피천아홉구비           울진기념품사업단           울진로컬푸드관광           이웃문화협동조합 
-##                          1                          1                          1                          1 
-##               자연의소리들               재즈팜장아찌               제천수상레저                 주왕산다원 
-##                          1                          1                          1                          1 
-##                 징게쟁이들         청년창업집단수토리         청송고택운영위원회         친환경영농조합법인 
-##                          1                          1                          1                          1 
-##           콩메마루협동조합           탄지리꽃단지마을               하추영농조합           합천공예협동조합 
-##                          1                          1                          1                          1 
-##                   핸즈퍼니                   행궁맛촌               협곡구비마을     혼불문화예술촌협동조합 
-##                          1                          1                          1                          1 
-##                     화전민 
-##                          1 
+##    Length     Class      Mode 
+##        97 character character 
 ## 
 ## $시도
 ## 강원 경기 경남 경북 전남 전북 충남 충북 
@@ -385,6 +344,22 @@ img {
 ## $사업자등록여부
 ## Yes  No 
 ##  49  48</code></pre>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
 </div>
 <div class="section level1">
 <h1>교차분석</h1>
@@ -466,6 +441,22 @@ img {
 </tr>
 </tbody>
 </table>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
 </div>
 <div id="-" class="section level3">
 <h3>모자이크 플롯</h3>
@@ -699,8 +690,6 @@ img {
 </tr>
 </tbody>
 </table>
-<hr />
-<hr />
 <hr />
 <hr />
 <hr />
@@ -1359,160 +1348,139 @@ img {
 <hr />
 <hr />
 <hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
 <div id="-" class="section level3">
 <h3>3원 교차분석</h3>
-<ul>
-<li><p>공동체상태/조직형태와 사업자등록여부</p>
 <table>
+<caption>* 공동체상태/조직형태와 사업자등록여부</caption>
 <thead>
 <tr class="header">
-<th align="right">등록</th>
-<th align="right">미등</th>
-<th align="left">록</th>
+<th align="left"></th>
+<th align="center">등록</th>
+<th align="center">미등록</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">경영개선_법인</td>
-<td align="right">24</td>
-<td align="left">0</td>
+<td align="left">경영개선_법인</td>
+<td align="center">24</td>
+<td align="center">0</td>
 </tr>
 <tr class="even">
-<td align="right">경영개선_임의단체</td>
-<td align="right">3</td>
-<td align="left">0</td>
+<td align="left">경영개선_임의단체</td>
+<td align="center">3</td>
+<td align="center">0</td>
 </tr>
 <tr class="odd">
-<td align="right">창업준비_법인</td>
-<td align="right">19</td>
-<td align="left">9</td>
+<td align="left">창업준비_법인</td>
+<td align="center">19</td>
+<td align="center">9</td>
 </tr>
 <tr class="even">
-<td align="right">창업준비_임의단체</td>
-<td align="right">3</td>
-<td align="left">39</td>
+<td align="left">창업준비_임의단체</td>
+<td align="center">3</td>
+<td align="center">39</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 <hr />
-<hr />
-<ul>
-<li><p>공동체상태/조직형태와 사업자등록여부(%)</p>
 <table>
+<caption>* 공동체상태/조직형태와 사업자등록여부(%)</caption>
 <thead>
 <tr class="header">
-<th align="right">등</th>
-<th align="left">록 미등</th>
-<th align="left">록</th>
+<th align="left"></th>
+<th align="center">등록</th>
+<th align="center">미등록</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">경영개선_법인</td>
-<td align="left">100.0</td>
-<td align="left">0.0</td>
+<td align="left">경영개선_법인</td>
+<td align="center">100.0</td>
+<td align="center">0.0</td>
 </tr>
 <tr class="even">
-<td align="right">경영개선_임의단체</td>
-<td align="left">100.0</td>
-<td align="left">0.0</td>
+<td align="left">경영개선_임의단체</td>
+<td align="center">100.0</td>
+<td align="center">0.0</td>
 </tr>
 <tr class="odd">
-<td align="right">창업준비_법인</td>
-<td align="left">67.9</td>
-<td align="left">32.1</td>
+<td align="left">창업준비_법인</td>
+<td align="center">67.9</td>
+<td align="center">32.1</td>
 </tr>
 <tr class="even">
-<td align="right">창업준비_임의단체</td>
-<td align="left">7.1</td>
-<td align="left">92.9</td>
+<td align="left">창업준비_임의단체</td>
+<td align="center">7.1</td>
+<td align="center">92.9</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 <hr />
-<hr />
-<ul>
-<li><p>공동체상태/조직형태와 사업착수여부</p>
 <table>
+<caption>* 공동체상태/조직형태와 사업착수여부</caption>
 <thead>
 <tr class="header">
-<th align="right">착수</th>
-<th align="right">미착</th>
-<th align="left">수</th>
+<th align="left"></th>
+<th align="center">착수</th>
+<th align="center">미착수</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">경영개선_법인</td>
-<td align="right">24</td>
-<td align="left">0</td>
+<td align="left">경영개선_법인</td>
+<td align="center">24</td>
+<td align="center">0</td>
 </tr>
 <tr class="even">
-<td align="right">경영개선_임의단체</td>
-<td align="right">3</td>
-<td align="left">0</td>
+<td align="left">경영개선_임의단체</td>
+<td align="center">3</td>
+<td align="center">0</td>
 </tr>
 <tr class="odd">
-<td align="right">창업준비_법인</td>
-<td align="right">17</td>
-<td align="left">11</td>
+<td align="left">창업준비_법인</td>
+<td align="center">17</td>
+<td align="center">11</td>
 </tr>
 <tr class="even">
-<td align="right">창업준비_임의단체</td>
-<td align="right">7</td>
-<td align="left">35</td>
+<td align="left">창업준비_임의단체</td>
+<td align="center">7</td>
+<td align="center">35</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 <hr />
-<hr />
-<ul>
-<li><p>공동체상태/조직형태와 사업착수여부(%)</p>
 <table>
+<caption>* 공동체상태/조직형태와 사업착수여부(%)</caption>
 <thead>
 <tr class="header">
-<th align="right">착</th>
-<th align="left">수 미착</th>
-<th align="left">수</th>
+<th align="left"></th>
+<th align="center">착수</th>
+<th align="center">미착수</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">경영개선_법인</td>
-<td align="left">100.0</td>
-<td align="left">0.0</td>
+<td align="left">경영개선_법인</td>
+<td align="center">100.0</td>
+<td align="center">0.0</td>
 </tr>
 <tr class="even">
-<td align="right">경영개선_임의단체</td>
-<td align="left">100.0</td>
-<td align="left">0.0</td>
+<td align="left">경영개선_임의단체</td>
+<td align="center">100.0</td>
+<td align="center">0.0</td>
 </tr>
 <tr class="odd">
-<td align="right">창업준비_법인</td>
-<td align="left">60.7</td>
-<td align="left">39.3</td>
+<td align="left">창업준비_법인</td>
+<td align="center">60.7</td>
+<td align="center">39.3</td>
 </tr>
 <tr class="even">
-<td align="right">창업준비_임의단체</td>
-<td align="left">16.7</td>
-<td align="left">83.3</td>
+<td align="left">창업준비_임의단체</td>
+<td align="center">16.7</td>
+<td align="center">83.3</td>
 </tr>
 </tbody>
-</table></li>
-</ul>
-<hr />
-<hr />
-<hr />
-<hr />
+</table>
 <hr />
 <hr />
 </div>
@@ -1728,6 +1696,8 @@ img {
 </ul></li>
 </ul>
 <p><img src="data:image/png;base64,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" title alt width="480" /></p>
+<hr />
+<hr />
 </div>
 <div id="ecdf" class="section level3">
 <h3>ECDF</h3>

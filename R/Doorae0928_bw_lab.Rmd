@@ -9,7 +9,7 @@ output: html_document
 ### 기초자료
 
 ```{r, echo=FALSE, message=FALSE}
-getwd()
+# getwd()
 load("./doorae_new1015.rda")
 load("./coord.rda")
 # library(xtable)
@@ -42,6 +42,12 @@ doorae.ys <- doorae0924.ys
 
 -----
 
+-----
+
+-----
+
+-----
+
 
 ### 성과자료
 
@@ -49,6 +55,16 @@ doorae.ys <- doorae0924.ys
 (str.doorae.2 <- str(doorae[, 25:54]))
 # pander(list(str.doorae.2))
 ```
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
 
 -----
 
@@ -72,6 +88,39 @@ cols.no.summary <- which(names(doorae) %in% cols.no.summary.names)
 # pander(doorae.summary)
 # print(xtable(doorae.summary))
 ```
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
 
 # 교차분석
 
@@ -113,6 +162,39 @@ kable(status.vs.structure.ap, digits=3, caption="ㅇ공동체상태와 조직형
 kable(status.vs.structure.ap.2, digits=3, caption="ㅇ조직형태와 공동체상태(%, 계)")
 ```
 
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+-----
+
+
 ### 모자이크 플롯
 
 * 공동체상태와 조직형태
@@ -152,10 +234,6 @@ c.names <- c("공동체상태", "조직명", "사업착수여부", "사업자등
 ```{r, results='asis', echo=FALSE}
 kable(doorae[corporate.bi, v.names], row.names= FALSE, col.names=c.names)
 ```
-
------
-
------
 
 -----
 
@@ -207,71 +285,60 @@ kable(doorae[noncorporate.bp, v.names], row.names= FALSE, col.names=c.names)
 
 -----
 
------
-
------
-
------
-
------
-
------
-
------
 
 ### 3원 교차분석
 
 ```{r, echo=FALSE}
 comm_stat.org_str.reg.ftbl <- ftable(table("공동체상태 :"=doorae$"공동체상태", "조직형태 :"=doorae$"조직형태", "사업자등록여부:"=doorae$regi.kr))
 comm_stat.org_str.busi.ftbl <- ftable(table("공동체상태 :"=doorae$"공동체상태", "조직형태 :"=doorae$"조직형태", "사업착수여부 :"=doorae$busi.kr))
+k1 <- kable(as.matrix(comm_stat.org_str.reg.ftbl), caption = "* 공동체상태/조직형태와 사업자등록여부")
+k2 <- kable(round(as.matrix(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100), digits=1),  caption = "* 공동체상태/조직형태와 사업자등록여부(%)" )
+k3 <- kable(as.matrix(comm_stat.org_str.busi.ftbl), caption = "* 공동체상태/조직형태와 사업착수여부")
+k4 <- kable(round(as.matrix(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100), digits=1),  caption = "* 공동체상태/조직형태와 사업착수여부(%)")
 ```
 
-
-* 공동체상태/조직형태와 사업자등록여부 
 
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.reg.ftbl)
 ```
 
-```{r, echo=FALSE, results='asis'}
-kable(as.matrix(comm_stat.org_str.reg.ftbl))
+```{r, echo=FALSE}
+# k1 <- kable(as.matrix(comm_stat.org_str.reg.ftbl))
+k1
 ```
 
 ```{r, echo=FALSE, results='asis'}
 # stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
 ```
 
-----------
 
 ----------
 
-* 공동체상태/조직형태와 사업자등록여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
 ```
 
-```{r, echo=FALSE, results='asis'}
-kable(as.matrix(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1)))
+```{r, echo=FALSE}
+# k2 <- kable(round(as.matrix(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100), digits=1))
+k2
 ```
 
 ```{r, echo=FALSE, results='asis'}
 # stargazer(format(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
-----------
 
 ----------
 
-
-* 공동체상태/조직형태와 사업착수여부
 
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.busi.ftbl)
 ```
 
-```{r, echo=FALSE, results='asis'}
-kable(as.matrix(comm_stat.org_str.busi.ftbl))
+```{r, echo=FALSE}
+# k3 <- kable(as.matrix(comm_stat.org_str.busi.ftbl))
+k3
 ```
 
 ```{r, echo=FALSE, results='asis'}
@@ -280,30 +347,19 @@ kable(as.matrix(comm_stat.org_str.busi.ftbl))
 
 ----------
 
-----------
-
-
-* 공동체상태/조직형태와 사업착수여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
 ```
 
-```{r, echo=FALSE, results='asis'}
-kable(as.matrix(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1)))
+```{r, echo=FALSE}
+# k4 <- kable(round(as.matrix(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100), digits=1))
+k4
 ```
 
 ```{r, echo=FALSE, results='asis'}
 # stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
-
------
-
------
-
------
-
------
 
 -----
 
@@ -396,6 +452,10 @@ box.4 <- box.3 + scale_x_discrete(labels=c("창업준비", "경영개선"))
 box.5 <- box.4 + annotate("text", x=c(1, 2), y=c(12.2, 13), label=c("예그리나", "아름다운인제관광"), size=3.5, family="HCR Dotum")
 box.5
 ```
+
+-----
+
+-----
 
 ### ECDF
 
