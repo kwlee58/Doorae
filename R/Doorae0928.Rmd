@@ -17,6 +17,7 @@ library(stargazer)
 library(knitr)
 library(tables)
 library(pander)
+panderOptions("table.split.table", Inf)
 options(xtable.comment=FALSE)
 options(family="Apple SD Gothic Neo")
 # ls()
@@ -70,6 +71,41 @@ doorae.summary<-sapply(doorae[, -cols.no.summary], summary)
 pander(doorae.summary)
 ```
 
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
 
 # 교차분석
 
@@ -109,6 +145,36 @@ kable(as.matrix(status.vs.structure.am), caption="ㅇ공동체상태와 조직�
 kable(as.matrix(status.vs.structure.ap), caption="ㅇ공동체상태와 조직형태(%, 계)")
 kable(as.matrix(status.vs.structure.ap.2), caption="ㅇ조직형태와 공동체상태(%, 계)")
 ```
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
 
 ### 모자이크 플롯
 
@@ -238,8 +304,6 @@ kable(as.matrix(comm_stat.org_str.reg.ftbl), caption = "* 공동체상태/조직
 
 ----------
 
-----------
-
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
@@ -255,9 +319,6 @@ kable(as.matrix(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digi
 
 ----------
 
-----------
-
-
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.busi.ftbl)
 ```
@@ -272,9 +333,6 @@ kable(as.matrix(comm_stat.org_str.busi.ftbl), caption = "* 공동체상태/조�
 
 ----------
 
-----------
-
-
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
 ```
@@ -287,17 +345,6 @@ kable(as.matrix(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, dig
 # stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
-
------
-
------
-
------
-
------
-
------
-
 -----
 
 ## 공동체상태와 법인유형
@@ -306,12 +353,14 @@ kable(as.matrix(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, dig
 
 ```{r, results='asis', echo=FALSE}
 status.vs.corporate_type<-table(doorae$"공동체상태", doorae$"법인유형", dnn=c("공동체상태", "조직유형"))
-kable(status.vs.corporate_type, caption="<공동체상태와 조직유형>")
+# kable(status.vs.corporate_type, caption="<공동체상태와 조직유형>")
+pander(status.vs.corporate_type, caption="<공동체상태와 조직유형>")
 ````
 
 ```{r, results='asis', echo=FALSE}
 stock.co<-which(doorae$"법인유형"=="주식회사")
-kable(doorae[stock.co, c("공동체상태", "조직명")], caption="<주식회사인 공동체사업체>")
+# kable(doorae[stock.co, c("공동체상태", "조직명")], caption="<주식회사인 공동체사업체>")
+pander(doorae[stock.co, c("공동체상태", "조직명")], caption="<주식회사인 공동체사업체>")
 ```
 
 ### 모자이크 플롯

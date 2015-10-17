@@ -77,6 +77,7 @@ img {
 <pre><code>## Loading required package: rJava
 ## Loading required package: xlsxjars</code></pre>
 <pre class="r"><code>library(pander)
+panderOptions(&quot;table.split.table&quot;, 132)
 doorae0924.rest&lt;-read.xlsx(&quot;../data/Data0924.xlsx&quot;, 1, colIndex=2:54, endRow=98, stringsAsFactors=TRUE)
 doorae0924.name &lt;- read.xlsx(&quot;../data/Data0924.xlsx&quot;, 1, colIndex=1, endRow=98)
 doorae0924 &lt;- data.frame(doorae0924.name, doorae0924.rest)
@@ -110,8 +111,8 @@ doorae0924$&quot;시도&quot;</code></pre>
 ## Levels: 강원 경기 경남 경북 전남 전북 전북  충남 충북</code></pre>
 <pre class="r"><code>pander(table(doorae0924$&quot;시도&quot;))</code></pre>
 <table>
-<caption>Table continues below</caption>
 <colgroup>
+<col width="9%"></col>
 <col width="9%"></col>
 <col width="9%"></col>
 <col width="9%"></col>
@@ -131,6 +132,7 @@ doorae0924$&quot;시도&quot;</code></pre>
 <th align="center">전북</th>
 <th align="center">전북</th>
 <th align="center">충남</th>
+<th align="center">충북</th>
 </tr>
 </thead>
 <tbody>
@@ -143,20 +145,6 @@ doorae0924$&quot;시도&quot;</code></pre>
 <td align="center">18</td>
 <td align="center">0</td>
 <td align="center">2</td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col width="8%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">충북</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
 <td align="center">8</td>
 </tr>
 </tbody>

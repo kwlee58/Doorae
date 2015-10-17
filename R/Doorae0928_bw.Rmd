@@ -17,6 +17,7 @@ library(stargazer)
 library(knitr)
 library(tables)
 library(pander)
+panderOptions("table.split.table", Inf)
 options(xtable.comment=FALSE)
 # options(family="Apple SD Gothic Neo")
 # ls()
@@ -70,6 +71,42 @@ doorae.summary<-sapply(doorae[,-cols.no.summary], summary)
 pander(doorae.summary)
 ```
 
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
 # 교차분석
 
 ## 공동체상태와 조직형태
@@ -102,6 +139,36 @@ pander(status.vs.structure.am, digits=0, caption="ㅇ공동체상태와 조직�
 pander(status.vs.structure.ap, digits=3, caption="ㅇ공동체상태와 조직형태(%, 계)")
 pander(status.vs.structure.ap.2, digits=3, caption="ㅇ조직형태와 공동체상태(%, 계)")
 ```
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
+
+----
 
 ### 모자이크 플롯
 
@@ -217,88 +284,62 @@ comm_stat.org_str.busi.ftbl <- ftable(table("공동체상태 :"=doorae$"공동�
 ```
 
 
-* 공동체상태/조직형태와 사업자등록여부 
-
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.reg.ftbl)
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(comm_stat.org_str.reg.ftbl)
+kable(as.matrix(comm_stat.org_str.reg.ftbl), caption = "* 공동체상태/조직형태와 사업자등록여부 ")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
+# stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
 
-----------
-
-* 공동체상태/조직형태와 사업자등록여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1))
+kable(as.matrix(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1)), caption = "* 공동체상태/조직형태와 사업자등록여부(%)")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
+# stargazer(format(round(prop.table(comm_stat.org_str.reg.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
-
-----------
-
-
-* 공동체상태/조직형태와 사업착수여부
 
 ```{r, echo=FALSE, results='asis'}
 # pander(comm_stat.org_str.busi.ftbl)
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(comm_stat.org_str.busi.ftbl)
+kable(as.matrix(comm_stat.org_str.busi.ftbl), caption = "* 공동체상태/조직형태와 사업착수여부")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
+# stargazer(format(comm_stat.org_str.reg.ftbl, quote=FALSE, justify="right"), type="html")
 ```
 
 ----------
-
-----------
-
-
-* 공동체상태/조직형태와 사업착수여부(%)
 
 ```{r, echo=FALSE, results='asis'}
 # pander(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
 ```
 
 ```{r, echo=FALSE, results='asis'}
-# kable(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1))
+kable(as.matrix(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1)), caption = "* 공동체상태/조직형태와 사업착수여부(%)")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
+# stargazer(format(round(prop.table(comm_stat.org_str.busi.ftbl, margin=1)*100, digits=1), quote=FALSE, justify="right"), type="html")
 ```
 
 -----
-
------
-
------
-
------
-
------
-
------
-
 
 ## 공동체상태와 법인유형
 

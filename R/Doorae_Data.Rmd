@@ -8,6 +8,7 @@ output: html_document
 ```{r}
 library(xlsx)
 library(pander)
+panderOptions("table.split.table", 132)
 doorae0924.rest<-read.xlsx("../data/Data0924.xlsx", 1, colIndex=2:54, endRow=98, stringsAsFactors=TRUE)
 doorae0924.name <- read.xlsx("../data/Data0924.xlsx", 1, colIndex=1, endRow=98)
 doorae0924 <- data.frame(doorae0924.name, doorae0924.rest)
